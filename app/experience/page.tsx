@@ -1,6 +1,8 @@
+import Timeline from "../components/timeline"
+
 export default function Page() {
     return (
-        <div> experience </div>
+        <Timeline/>
     )
     
   }

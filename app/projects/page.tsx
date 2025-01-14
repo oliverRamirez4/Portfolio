@@ -22,7 +22,7 @@ export default function Page() {
                     <CardMedia
                         component="img"
                         alt="vote visual"
-                        image="/images/projectCards/voteVisual.png"
+                        image="/voteVisual.png"
                         sx={{
                             width: 275,  // Fixed width
                             height: 190, // Fixed height
@@ -65,7 +65,7 @@ export default function Page() {
                     <CardMedia
                         component="img"
                         alt="word Embedding Similarity"
-                        image="/images/projectCards/cosineSimilarity.png"
+                        image="/cosineSimilarity.png"
                         sx={{
                             width: 275,  // Fixed width
                             height: 190, // Fixed height
@@ -107,7 +107,7 @@ export default function Page() {
                     <CardMedia
                         component="img"
                         alt="conversation chat img"
-                        image="/images/projectCards/levelUp.png"
+                        image="/levelUp.png"
                         sx={{
                             width: 275,  // Fixed width
                             height: 190, // Fixed height
@@ -140,7 +140,7 @@ export default function Page() {
                     <CardMedia
                         component="img"
                         alt="Osu Game img"
-                        image="/images/projectCards/OsuGame.png"
+                        image="/OsuGame.png"
                         sx={{
                             width: 275,  // Fixed width
                             height: 190, // Fixed height

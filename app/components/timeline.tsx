@@ -23,17 +23,17 @@ const geistMono = Geist_Mono({
   });
 
 export default function Timeline() {
-    const [schwabOpen, setSchwabOpen] = useState(false);
+    const [schwabOpen, setSchwabOpen] = useState(true);
     const handleSchwabClick = () => {
         setSchwabOpen(!schwabOpen);
     }
 
-    const [AITOpen, setAITOpen] = useState(false);
+    const [AITOpen, setAITOpen] = useState(true);
     const handleAITClick = () => {
         setAITOpen(!AITOpen);
     }
 
-    const [jacobsOpen, setJacobsOpen] = useState(false);
+    const [jacobsOpen, setJacobsOpen] = useState(true);
     const handleJacobsClick = () => {
         setJacobsOpen(!jacobsOpen);
     }
@@ -43,7 +43,7 @@ export default function Timeline() {
         setJacobsTechOpen(!jacobsTechOpen);
     }
 
-    const [coColOpen, setCoColOpen] = useState(false);
+    const [coColOpen, setCoColOpen] = useState(true);
     const handleCoColClick = () => {
         setCoColOpen(!coColOpen);
     }

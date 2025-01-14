@@ -6,7 +6,7 @@ import { Footer } from "./components/footer";
 
 
 
-const geistMono = Geist_Mono({
+export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -29,7 +29,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <Footer />
-
+          
         </main>
 
       </body>

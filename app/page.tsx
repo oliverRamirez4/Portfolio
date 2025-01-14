@@ -6,7 +6,7 @@ export default function Home() {
         My Portfolio
       </h1>
       <p>
-        Hi, I'm Oliver Ramirez, a senior Computer Science student at Colorado College with a
+        Hi, I&#39;m Oliver Ramirez, a senior Computer Science student at Colorado College with a
         deep passion for software engineering.  My experience spans technologies including
         Python, Java, React, Github, SQL, C, and more. Since beginning my undergraduate
         studies at Colorado College in 2022 I have been pursuing a career in software engineering

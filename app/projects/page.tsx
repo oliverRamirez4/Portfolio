@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export default function Page() {
     return (
-        <div className="grid px-0 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 px-0 gap-4">
             {/* Colorado Vote Visualizations */}
             <Card sx={{ width: 1, height: 275 }} className="flex flex-col items-center">
                 <h1 className='text-xl font-medium'> Colorado Down Ballot Visuals </h1>

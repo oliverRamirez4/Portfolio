@@ -52,9 +52,24 @@ The open control for a mounted app is a plain anchor to `/apps/<slug>`. `next/li
 
 ## Visual style
 
-Look and feel are not constitution law until Oliver states them. Spec Kit does not invent a palette, typeface, or layout.
+The look is constitution law. Spec Kit does not invent a different palette, typeface, or layout.
 
-When a visual choice changes what a person can do, it is recorded in the feature spec through `/speckit-clarify` (for example: card then open, versus opening straight from the nav). Font, color, and spacing that do not change behavior are written here only after Oliver chooses them.
+The site is utilitarian. Type and alignment do the work. There is no hero, no decorative illustration, no photography, and no icon that depicts kayaking, rivers, or the outdoors. The outdoor reference stays in the color only.
+
+Color, used exactly:
+
+- Paper `#F3F1EC` is the page background.
+- Ink `#1C2422` is the text.
+- Stone `#D5D1C8` is for hairline rules and card borders.
+- Current `#3E6B66` is the only accent. It is used for links, the current nav item, and focus. It is used nowhere else.
+
+The page does not switch colors with the operating system.
+
+Typography is modular, ratio 1.25, base 16px. The steps are meta 13px, body 16px, title 20px, and display 25px. Body and display use Geist Sans. Nav, labels, and meta use Geist Mono. Weights are regular and medium only. Line length for reading text stays near 65 characters.
+
+Layout is one reading column, max width 40rem, centered, with a consistent left edge. Sections stack with space taken from the same 1.25 ratio. Project cards stay in that column and keep their border, title, summary, skills, and links. The resume PDF may be wider than the column so the page can be read. Nav remains Home, Resume, and Projects.
+
+About, the PDF resume, and the project cards keep their current behavior. A visual choice that changes what a person can do is recorded in a feature spec through `/speckit-clarify`. This constitution records the look. It does not change page code.
 
 ## Development workflow
 
@@ -66,4 +81,4 @@ Skills live in `.cursor/skills/` and are invoked in chat, one at a time: `/speck
 
 This constitution overrides conflicting notes under `specs/`. Amendments are edits to this file, with the version bumped.
 
-**Version**: 1.1.0 | **Ratified**: 2026-11-06 | **Last Amended**: 2026-11-06
+**Version**: 1.2.0 | **Ratified**: 2026-11-06 | **Last Amended**: 2026-11-06

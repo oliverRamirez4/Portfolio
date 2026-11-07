@@ -60,16 +60,28 @@ describe("buildRewrites", () => {
     assert.throws(() => buildRewrites([vote()]), /missing origin/);
   });
 
-  it("lists Shelter Connect and the river permit wrapper after the original four", () => {
-    delete process.env.PROJECT_SHELTER_CONNECT_ORIGIN;
-    delete process.env.PROJECT_RIVER_PERMIT_ORIGIN;
+  it("mounts the vote visualizer and Shelter Connect first", () => {
+    process.env.PROJECT_COLORADO_VOTE_ORIGIN = "https://colorado-vote-visuals.vercel.app";
+    process.env.PROJECT_SHELTER_CONNECT_ORIGIN = "https://cos-shelter-connect.vercel.app";
 
     assert.deepEqual(
       projects.map((project) => project.shortName),
-      ["colorado-vote", "nlp-labs", "level-up", "osu-clone", "shelter-connect", "river-permit"],
+      ["colorado-vote", "shelter-connect", "nlp-labs", "level-up", "osu-clone", "river-permit"],
     );
 
-    const shelter = projects[4];
+    const vote = projects[0];
+    assert.equal(vote.title, "Colorado Down Ballot Visuals");
+    assert.equal(vote.repositoryUrl, "https://github.com/oliverRamirez4/coloradoVoteVisuals");
+    assert.deepEqual(vote.skills, ["Postgres"]);
+    assert.equal(vote.image, "/voteVisual.png");
+    assert.equal(vote.externalUrl, undefined);
+    assert.deepEqual(vote.onSite, {
+      originEnv: "PROJECT_COLORADO_VOTE_ORIGIN",
+      assetPrefix: "/apps/colorado-vote-static",
+    });
+    assert.equal(openHref(vote), "/apps/colorado-vote");
+
+    const shelter = projects[1];
     assert.equal(shelter.title, "Shelter Connect");
     assert.equal(
       shelter.summary,
@@ -79,26 +91,46 @@ describe("buildRewrites", () => {
     assert.equal(shelter.repositoryUrl, "https://github.com/oliverRamirez4/COSConnect");
     assert.equal(shelter.image, undefined);
     assert.equal(shelter.externalUrl, undefined);
-    assert.equal(shelter.onSite, undefined);
-    assert.equal(openHref(shelter), null);
+    assert.deepEqual(shelter.onSite, {
+      originEnv: "PROJECT_SHELTER_CONNECT_ORIGIN",
+      assetPrefix: "/apps/shelter-connect-static",
+    });
+    assert.equal(openHref(shelter), "/apps/shelter-connect");
 
-    const river = projects[5];
-    assert.equal(river.title, "River Permit API Wrapper");
-    assert.equal(
-      river.summary,
-      "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
-    );
-    assert.deepEqual(river.skills, ["Python"]);
-    assert.equal(
-      river.repositoryUrl,
-      "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
-    );
-    assert.equal(river.image, undefined);
-    assert.equal(river.externalUrl, undefined);
-    assert.equal(river.onSite, undefined);
-    assert.equal(openHref(river), null);
+    for (const shortName of ["nlp-labs", "level-up", "osu-clone", "river-permit"]) {
+      const project = projects.find((item) => item.shortName === shortName);
+      assert.ok(project);
+      assert.equal(project.externalUrl, undefined);
+      assert.equal(project.onSite, undefined);
+      assert.equal(openHref(project), null);
+    }
 
-    assert.deepEqual(buildRewrites(projects), []);
+    assert.deepEqual(buildRewrites(projects), [
+      {
+        source: "/apps/colorado-vote",
+        destination: "https://colorado-vote-visuals.vercel.app/apps/colorado-vote",
+      },
+      {
+        source: "/apps/colorado-vote/:path+",
+        destination: "https://colorado-vote-visuals.vercel.app/apps/colorado-vote/:path+",
+      },
+      {
+        source: "/apps/colorado-vote-static/:path+",
+        destination: "https://colorado-vote-visuals.vercel.app/apps/colorado-vote-static/:path+",
+      },
+      {
+        source: "/apps/shelter-connect",
+        destination: "https://cos-shelter-connect.vercel.app/apps/shelter-connect",
+      },
+      {
+        source: "/apps/shelter-connect/:path+",
+        destination: "https://cos-shelter-connect.vercel.app/apps/shelter-connect/:path+",
+      },
+      {
+        source: "/apps/shelter-connect-static/:path+",
+        destination: "https://cos-shelter-connect.vercel.app/apps/shelter-connect-static/:path+",
+      },
+    ]);
   });
 
   it("throws for reserved sources and reserved short names", () => {

@@ -138,7 +138,22 @@ export const projects: Project[] = [
     repositoryUrl: "https://github.com/oliverRamirez4/coloradoVoteVisuals",
     skills: ["Postgres"],
     image: "/voteVisual.png",
-    externalUrl: "https://coloradovotevisuals.com",
+    onSite: {
+      originEnv: "PROJECT_COLORADO_VOTE_ORIGIN",
+      assetPrefix: "/apps/colorado-vote-static",
+    },
+  },
+  {
+    shortName: "shelter-connect",
+    title: "Shelter Connect",
+    summary:
+      "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
+    repositoryUrl: "https://github.com/oliverRamirez4/COSConnect",
+    skills: ["TypeScript", "React", "Postgres"],
+    onSite: {
+      originEnv: "PROJECT_SHELTER_CONNECT_ORIGIN",
+      assetPrefix: "/apps/shelter-connect-static",
+    },
   },
   {
     shortName: "nlp-labs",
@@ -166,14 +181,6 @@ export const projects: Project[] = [
     repositoryUrl: "https://github.com/oliverRamirez4/Osu-Game-Clone-Java",
     skills: [],
     image: "/OsuGame.png",
-  },
-  {
-    shortName: "shelter-connect",
-    title: "Shelter Connect",
-    summary:
-      "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
-    repositoryUrl: "https://github.com/oliverRamirez4/COSConnect",
-    skills: ["TypeScript", "React", "Postgres"],
   },
   {
     shortName: "river-permit",

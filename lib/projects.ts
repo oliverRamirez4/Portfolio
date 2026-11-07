@@ -167,4 +167,20 @@ export const projects: Project[] = [
     skills: [],
     image: "/OsuGame.png",
   },
+  {
+    shortName: "shelter-connect",
+    title: "Shelter Connect",
+    summary:
+      "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
+    repositoryUrl: "https://github.com/oliverRamirez4/COSConnect",
+    skills: ["TypeScript", "React", "Postgres"],
+  },
+  {
+    shortName: "river-permit",
+    title: "River Permit API Wrapper",
+    summary:
+      "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
+    repositoryUrl: "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
+    skills: ["Python"],
+  },
 ];

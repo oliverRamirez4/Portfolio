@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { buildRewrites, type Project } from "../lib/projects.ts";
+import { buildRewrites, openHref, projects, type Project } from "../lib/projects.ts";
 
 const originalEnv = { ...process.env };
 
@@ -58,6 +58,47 @@ describe("buildRewrites", () => {
   it("throws when the origin variable is missing", () => {
     delete process.env.PROJECT_VOTE_ORIGIN;
     assert.throws(() => buildRewrites([vote()]), /missing origin/);
+  });
+
+  it("lists Shelter Connect and the river permit wrapper after the original four", () => {
+    delete process.env.PROJECT_SHELTER_CONNECT_ORIGIN;
+    delete process.env.PROJECT_RIVER_PERMIT_ORIGIN;
+
+    assert.deepEqual(
+      projects.map((project) => project.shortName),
+      ["colorado-vote", "nlp-labs", "level-up", "osu-clone", "shelter-connect", "river-permit"],
+    );
+
+    const shelter = projects[4];
+    assert.equal(shelter.title, "Shelter Connect");
+    assert.equal(
+      shelter.summary,
+      "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
+    );
+    assert.deepEqual(shelter.skills, ["TypeScript", "React", "Postgres"]);
+    assert.equal(shelter.repositoryUrl, "https://github.com/oliverRamirez4/COSConnect");
+    assert.equal(shelter.image, undefined);
+    assert.equal(shelter.externalUrl, undefined);
+    assert.equal(shelter.onSite, undefined);
+    assert.equal(openHref(shelter), null);
+
+    const river = projects[5];
+    assert.equal(river.title, "River Permit API Wrapper");
+    assert.equal(
+      river.summary,
+      "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
+    );
+    assert.deepEqual(river.skills, ["Python"]);
+    assert.equal(
+      river.repositoryUrl,
+      "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
+    );
+    assert.equal(river.image, undefined);
+    assert.equal(river.externalUrl, undefined);
+    assert.equal(river.onSite, undefined);
+    assert.equal(openHref(river), null);
+
+    assert.deepEqual(buildRewrites(projects), []);
   });
 
   it("throws for reserved sources and reserved short names", () => {

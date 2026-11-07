@@ -7,22 +7,24 @@ const resumePosted = existsSync(path.join(process.cwd(), "public", "oliver-ramir
 export default function ResumePage() {
   return (
     <section>
-      <h1 className="text-2xl font-bold mb-6">Resume</h1>
+      <h1 className="font-sans text-[25px] font-medium">Resume</h1>
       {resumePosted ? (
         <>
-          <p className="mb-4">
-            <a href={resumeUrl} target="_blank" rel="noreferrer">
+          <p className="mt-4">
+            <a href={resumeUrl} target="_blank" rel="noreferrer" className="text-current">
               Open the PDF
             </a>
           </p>
-          <iframe
-            src={resumeUrl}
-            title="Oliver Ramirez resume"
-            className="relative left-1/2 h-[80vh] w-[min(56rem,calc(100vw-2rem))] -translate-x-1/2 border-0"
-          />
+          <div className="relative left-1/2 mt-4 w-screen -translate-x-1/2">
+            <iframe
+              src={resumeUrl}
+              title="Oliver Ramirez resume"
+              className="mx-auto block h-[80vh] w-[min(56rem,calc(100vw-2rem))] border-0"
+            />
+          </div>
         </>
       ) : (
-        <p>The resume is not available yet.</p>
+        <p className="mt-4 text-[16px] font-normal">The resume is not available yet.</p>
       )}
     </section>
   );

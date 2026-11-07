@@ -1,174 +1,57 @@
-'use client'
-import Card from "@mui/material/Card"
-import { CardMedia } from "@mui/material"
-import GitHub from "@mui/icons-material/GitHub"
-import InsertLink from "@mui/icons-material/InsertLink"
-import Link from "next/link"
+import Card from "@mui/material/Card";
+import { CardMedia } from "@mui/material";
+import GitHub from "@mui/icons-material/GitHub";
+import InsertLink from "@mui/icons-material/InsertLink";
+import { openHref, projects } from "@/lib/projects";
 
 export default function Page() {
+  if (projects.length === 0) {
     return (
-        <div className="grid grid-cols-1 px-0 gap-4">
-            {/* Colorado Vote Visualizations */}
-            <Card sx={{ width: 1, height: 275 }} className="flex flex-col items-center">
-                <h1 className='text-xl font-medium'> Colorado Down Ballot Visuals </h1>
-                <div className='grid grid-cols-2 px-2 flex-grow'>
-                    <p className='text-xs overflow-y-auto pr-2 h-full' style={{ maxHeight: '215px' }}>
-                        For my thesis project I worked alongside my group of 5 senior computer Science
-                        students to build a full stack application that provides a resource to Colorado
-                        journalists for visualizing down ballot election results which are saller ballot
-                        measures at the state level. Our project was complete with iframe embed codes and
-                        a 20 year postgresql database of all ballot results.
-                    </p>
-                    <div className="flex flex-col items-center">
-                        <CardMedia
-                            component="img"
-                            alt="vote visual"
-                            image="/voteVisual.png"
-                            sx={{
-                                width: 275,  // Fixed width
-                                height: 190, // Fixed height
-                                objectFit: 'contain', // Ensures the image scales without cropping
-                            }}
-                        />
-                        <div className="flex justify-center gap-10 mt-2">
-                            <Link href='https://github.com/oliverRamirez4/coloradoVoteVisuals' target="_blank">
-                                <GitHub
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }} />
-                            </Link>
-                            <Link href='https://coloradovotevisuals.com' target="_blank">
-                                <InsertLink
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }}
-                                />
-                            </Link>
-                        </div>
-                    </div>
+      <section>
+        <h1 className="text-2xl font-bold mb-6">Projects</h1>
+        <p>There are no projects yet.</p>
+      </section>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 px-0 gap-4">
+      {projects.map((project) => {
+        const href = openHref(project);
+        return (
+          <Card key={project.shortName} sx={{ width: 1, height: project.image ? 275 : "auto" }} className="flex flex-col items-center">
+            <h1 className="text-xl font-medium">{project.title}</h1>
+            <div className={project.image ? "grid grid-cols-2 px-2 flex-grow" : "px-2"}>
+              <div className="text-xs overflow-y-auto pr-2 h-full" style={{ maxHeight: project.image ? "215px" : undefined }}>
+                <p>{project.summary}</p>
+                {project.skills.length > 0 ? <p className="mt-2">{project.skills.join(", ")}</p> : null}
+              </div>
+              <div className="flex flex-col items-center">
+                {project.image ? (
+                  <CardMedia
+                    component="img"
+                    alt={project.title}
+                    image={project.image}
+                    sx={{ width: 275, height: 190, objectFit: "contain" }}
+                  />
+                ) : null}
+                <div className="flex justify-center gap-6 mt-2 items-center">
+                  <a href={project.repositoryUrl} target="_blank" rel="noreferrer" aria-label={`${project.title} repository`}>
+                    <GitHub sx={{ transition: "transform 0.3s ease", "&:hover": { transform: "scale(1.5)" }, scale: 1.5 }} />
+                  </a>
+                  {href ? (
+                    <a href={href} aria-label={`Open ${project.title}`}>
+                      <InsertLink sx={{ transition: "transform 0.3s ease", "&:hover": { transform: "scale(1.5)" }, scale: 1.5 }} />
+                      {project.onSite ? <span className="sr-only">Opens on this site</span> : null}
+                    </a>
+                  ) : null}
                 </div>
-            </Card>
-
-            {/* Natural Language Processing Labs */}
-            <Card sx={{ width: 1, height: 275 }} className="flex flex-col items-center">
-                <h1 className='text-xl font-medium'>Natural Language Processing Labs</h1>
-                <div className='grid grid-cols-2 px-2 flex-grow'>
-                    <p className='text-xs overflow-y-auto pr-2 h-full' style={{ maxHeight: '215px' }}>
-                        Labs I completed for the Natural Language Processing Course at Colorado
-                        College all written in python. Topics included semantic analysis, word embeddings,
-                        speech classification, and semantic similarity using cosine similarity of word embeddings.
-                        Starter code for labs was provided by Professor Blake Jackson.
-                    </p>
-                    <div className="flex flex-col items-center">
-                        <CardMedia
-                            component="img"
-                            alt="word Embedding Similarity"
-                            image="/cosineSimilarity.png"
-                            sx={{
-                                width: 275,  // Fixed width
-                                height: 190, // Fixed height
-                                objectFit: 'contain', // Ensures the image scales without cropping
-                            }}
-                        />
-                        <div className="flex justify-center gap-6 mt-2">
-                            <Link href='https://github.com/oliverRamirez4' target="_blank">
-                                <GitHub
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }} />
-                            </Link>
-                            <Link href='https://github.com/oliverRamirez4' target="_blank">
-                                <InsertLink
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }} />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </Card>
-
-            {/* Level-Up Chat Bot */}
-            <Card sx={{ width: 1, height: 275 }} className="flex flex-col items-center">
-                <h1 className='text-xl font-medium'>Conversational AI Chat Interface </h1>
-                <div className='grid grid-cols-2 px-2 flex-grow'>
-                    <p className='text-xs overflow-y-auto pr-2 h-full' style={{ maxHeight: '215px' }}>
-                        A full stack application I built which allows the user to talk with the
-                        blender AI conversational chatbot. This project acted as an introduction
-                        to full-stack applications and I was able to work with many front end
-                        technologies for the first time while gaining familiarity with Hugging Face
-                        Machine Learning Library.
-                    </p>
-                    <div className="flex flex-col items-center">
-                        <CardMedia
-                            component="img"
-                            alt="conversation chat img"
-                            image="/levelUp.png"
-                            sx={{
-                                width: 275,  // Fixed width
-                                height: 190, // Fixed height
-                                objectFit: 'contain', // Ensures the image scales without cropping
-                            }}
-                        />
-                        <div className="flex justify-center gap-6 mt-2">
-                            <Link href='https://github.com/oliverRamirez4/LevelUp2024' target="_blank">
-                                <GitHub
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }} />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </Card>
-
-            {/* Osu Project Clone */}
-            <Card sx={{ width: 1, height: 275 }} className="flex flex-col items-center">
-                <h1 className='text-xl font-medium'>Osu Rhythm Game Clone</h1>
-                <div className='grid grid-cols-2 px-2 flex-grow'>
-                    <p className='text-xs overflow-y-auto pr-2 h-full' style={{ maxHeight: '215px' }}>
-                        A clone of the rhythm game OSU built with Java. Implemented a music player
-                        that plays on a seperate thread, a leaderboard using SQL, and a file reading
-                        system that allows us to drop a .osu file into our game and it will automatically
-                        generate a level based on the files parameters. UI built with Java Swing library.
-                    </p>
-                    <div className="flex flex-col items-center">
-                        <CardMedia
-                            component="img"
-                            alt="Osu Game img"
-                            image="/OsuGame.png"
-                            sx={{
-                                width: 275,  // Fixed width
-                                height: 190, // Fixed height
-                                objectFit: 'contain', // Ensures the image scales without cropping
-                            }}
-                        />
-                        <div className="flex justify-center gap-6 mt-2">
-                            <Link href='https://github.com/oliverRamirez4/Osu-Game-Clone-Java' target="_blank">
-                                <GitHub
-                                    sx={{ //scale 1.5x originally then scal 1.5x again on hover over 0.3s
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': { transform: 'scale(1.5)', },
-                                        scale: 1.5,
-                                    }} />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </Card>
-
-
-        </div>
-    )
-
+                {project.onSite ? <p className="text-xs mt-1">Opens on this site</p> : null}
+              </div>
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+  );
 }

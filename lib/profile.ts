@@ -1,0 +1,10 @@
+export interface Profile {
+  name: string;
+  about: string;
+}
+
+export const profile: Profile = {
+  name: "Oliver Ramirez",
+  about:
+    "Hi, I'm Oliver Ramirez, a senior Computer Science student at Colorado College with a deep passion for software engineering. My experience spans technologies including Python, Java, React, Github, SQL, C, and more. Since beginning my undergraduate studies at Colorado College in 2022 I have been pursuing a career in software engineering by working internships with Charles Schwab and Jacobs Technology while also doing research alongside professors at Aquincum Institute of Technology in Budapest, Hungary. I am excited to share my experiences and projects with you!",
+};

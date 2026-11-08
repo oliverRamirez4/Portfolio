@@ -1,6 +1,20 @@
 import type { IconType } from "react-icons";
 import { FaArrowUpRightFromSquare, FaGithub, FaJava } from "react-icons/fa6";
-import { SiHuggingface, SiPostgresql, SiPython, SiReact, SiTypescript } from "react-icons/si";
+import {
+  SiD3Dotjs,
+  SiFlask,
+  SiHuggingface,
+  SiMapbox,
+  SiMysql,
+  SiNextdotjs,
+  SiNumpy,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiScikitlearn,
+  SiSpacy,
+  SiTypescript,
+} from "react-icons/si";
 import { openHref, projects, type Skill } from "@/lib/projects";
 
 const marks: Partial<Record<Skill, IconType>> = {
@@ -8,8 +22,16 @@ const marks: Partial<Record<Skill, IconType>> = {
   Postgres: SiPostgresql,
   TypeScript: SiTypescript,
   React: SiReact,
+  "Next.js": SiNextdotjs,
+  D3: SiD3Dotjs,
+  Mapbox: SiMapbox,
+  Flask: SiFlask,
   "Hugging Face": SiHuggingface,
+  spaCy: SiSpacy,
+  "scikit-learn": SiScikitlearn,
+  NumPy: SiNumpy,
   Java: FaJava,
+  MySQL: SiMysql,
 };
 
 export default function Page() {

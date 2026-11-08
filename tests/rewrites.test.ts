@@ -72,7 +72,7 @@ describe("buildRewrites", () => {
     const vote = projects[0];
     assert.equal(vote.title, "Colorado Down Ballot Visuals");
     assert.equal(vote.repositoryUrl, "https://github.com/oliverRamirez4/coloradoVoteVisuals");
-    assert.deepEqual(vote.skills, ["Postgres"]);
+    assert.deepEqual(vote.skills, ["TypeScript", "React", "Next.js", "Postgres", "D3"]);
     assert.equal(vote.image, "/voteVisual.png");
     assert.equal(vote.externalUrl, undefined);
     assert.deepEqual(vote.onSite, {
@@ -87,7 +87,7 @@ describe("buildRewrites", () => {
       shelter.summary,
       "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
     );
-    assert.deepEqual(shelter.skills, ["TypeScript", "React", "Postgres"]);
+    assert.deepEqual(shelter.skills, ["TypeScript", "React", "Next.js", "Postgres", "Mapbox"]);
     assert.equal(shelter.repositoryUrl, "https://github.com/oliverRamirez4/COSConnect");
     assert.equal(shelter.image, undefined);
     assert.equal(shelter.externalUrl, undefined);
@@ -109,8 +109,8 @@ describe("buildRewrites", () => {
     const osu = projects.find((item) => item.shortName === "osu-clone");
     assert.ok(levelUp);
     assert.ok(osu);
-    assert.deepEqual(levelUp.skills, ["Hugging Face"]);
-    assert.deepEqual(osu.skills, ["Java", "SQL", "Java Swing"]);
+    assert.deepEqual(levelUp.skills, ["Python", "Flask", "Hugging Face"]);
+    assert.deepEqual(osu.skills, ["Java", "Java Swing", "MySQL"]);
 
     assert.deepEqual(buildRewrites(projects), [
       {

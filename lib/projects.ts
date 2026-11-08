@@ -4,10 +4,18 @@ export const SKILLS = [
   "Unix",
   "TypeScript",
   "React",
+  "Next.js",
+  "D3",
+  "Mapbox",
+  "Flask",
   "Hugging Face",
+  "spaCy",
+  "scikit-learn",
+  "NumPy",
+  "Matplotlib",
   "Java",
-  "SQL",
   "Java Swing",
+  "MySQL",
 ] as const;
 
 export type Skill = (typeof SKILLS)[number];
@@ -146,7 +154,7 @@ export const projects: Project[] = [
     summary:
       "For my thesis project I worked alongside my group of 5 senior computer Science students to build a full stack application that provides a resource to Colorado journalists for visualizing down ballot election results which are smaller ballot measures at the state level. Our project was complete with iframe embed codes and a 20 year postgresql database of all ballot results.",
     repositoryUrl: "https://github.com/oliverRamirez4/coloradoVoteVisuals",
-    skills: ["Postgres"],
+    skills: ["TypeScript", "React", "Next.js", "Postgres", "D3"],
     image: "/voteVisual.png",
     onSite: {
       originEnv: "PROJECT_COLORADO_VOTE_ORIGIN",
@@ -159,7 +167,7 @@ export const projects: Project[] = [
     summary:
       "A Colorado Springs homeless-shelter guide from the Colorado College TigerHacks hackathon. A person can see shelters and the people they serve.",
     repositoryUrl: "https://github.com/oliverRamirez4/COSConnect",
-    skills: ["TypeScript", "React", "Postgres"],
+    skills: ["TypeScript", "React", "Next.js", "Postgres", "Mapbox"],
     onSite: {
       originEnv: "PROJECT_SHELTER_CONNECT_ORIGIN",
       assetPrefix: "/apps/shelter-connect-static",
@@ -170,8 +178,8 @@ export const projects: Project[] = [
     title: "Natural Language Processing Labs",
     summary:
       "Labs I completed for the Natural Language Processing Course at Colorado College all written in python. Topics included semantic analysis, word embeddings, speech classification, and semantic similarity using cosine similarity of word embeddings. Starter code for labs was provided by Professor Blake Jackson.",
-    repositoryUrl: "https://github.com/oliverRamirez4",
-    skills: ["Python"],
+    repositoryUrl: "https://github.com/oliverRamirez4/NaturalLanguageProcessingLabs",
+    skills: ["Python", "spaCy", "scikit-learn", "NumPy", "Matplotlib"],
     image: "/cosineSimilarity.png",
   },
   {
@@ -180,7 +188,7 @@ export const projects: Project[] = [
     summary:
       "A full stack application I built which allows the user to talk with the blender AI conversational chatbot. This project acted as an introduction to full-stack applications and I was able to work with many front end technologies for the first time while gaining familiarity with Hugging Face Machine Learning Library.",
     repositoryUrl: "https://github.com/oliverRamirez4/LevelUp2024",
-    skills: ["Hugging Face"],
+    skills: ["Python", "Flask", "Hugging Face"],
     image: "/levelUp.png",
   },
   {
@@ -189,7 +197,7 @@ export const projects: Project[] = [
     summary:
       "A clone of the rhythm game OSU built with Java. Implemented a music player that plays on a seperate thread, a leaderboard using SQL, and a file reading system that allows us to drop a .osu file into our game and it will automatically generate a level based on the files parameters. UI built with Java Swing library.",
     repositoryUrl: "https://github.com/oliverRamirez4/Osu-Game-Clone-Java",
-    skills: ["Java", "SQL", "Java Swing"],
+    skills: ["Java", "Java Swing", "MySQL"],
     image: "/OsuGame.png",
   },
   {

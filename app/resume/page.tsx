@@ -19,7 +19,7 @@ export default function ResumePage() {
             <iframe
               src={resumeUrl}
               title="Oliver Ramirez resume"
-              className="mx-auto block h-[80vh] w-[min(56rem,calc(100vw-2rem))] border-0"
+              className="mx-auto block h-[80vh] w-[min(56rem,calc(100vw-2rem))] border-0 bg-paper"
             />
           </div>
         </>

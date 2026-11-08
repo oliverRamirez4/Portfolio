@@ -105,6 +105,13 @@ describe("buildRewrites", () => {
       assert.equal(openHref(project), null);
     }
 
+    const levelUp = projects.find((item) => item.shortName === "level-up");
+    const osu = projects.find((item) => item.shortName === "osu-clone");
+    assert.ok(levelUp);
+    assert.ok(osu);
+    assert.deepEqual(levelUp.skills, ["Hugging Face"]);
+    assert.deepEqual(osu.skills, ["Java", "SQL", "Java Swing"]);
+
     assert.deepEqual(buildRewrites(projects), [
       {
         source: "/apps/colorado-vote",

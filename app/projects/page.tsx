@@ -1,4 +1,16 @@
-import { openHref, projects } from "@/lib/projects";
+import type { IconType } from "react-icons";
+import { FaJava } from "react-icons/fa";
+import { SiHuggingface, SiPostgresql, SiPython, SiReact, SiTypescript } from "react-icons/si";
+import { openHref, projects, type Skill } from "@/lib/projects";
+
+const marks: Partial<Record<Skill, IconType>> = {
+  Python: SiPython,
+  Postgres: SiPostgresql,
+  TypeScript: SiTypescript,
+  React: SiReact,
+  "Hugging Face": SiHuggingface,
+  Java: FaJava,
+};
 
 export default function Page() {
   if (projects.length === 0) {
@@ -21,7 +33,17 @@ export default function Page() {
               <h2 className="font-sans text-[20px] font-medium text-ink">{project.title}</h2>
               <p className="mt-4 text-[16px] font-normal text-ink">{project.summary}</p>
               {project.skills.length > 0 ? (
-                <p className="mt-4 font-mono text-[13px] font-normal text-ink">{project.skills.join(", ")}</p>
+                <ul className="mt-4 flex flex-wrap gap-4">
+                  {project.skills.map((skill) => {
+                    const Mark = marks[skill];
+                    return (
+                      <li key={skill} className="flex items-center gap-2 font-mono text-[13px] font-normal text-ink">
+                        {Mark ? <Mark aria-hidden="true" className="text-ink" color="currentColor" size={13} /> : null}
+                        {skill}
+                      </li>
+                    );
+                  })}
+                </ul>
               ) : null}
               {project.image ? (
                 <img src={project.image} alt={project.title} className="mt-4 w-full object-contain" />

@@ -1,4 +1,14 @@
-export const SKILLS = ["Python", "Postgres", "Unix", "TypeScript", "React"] as const;
+export const SKILLS = [
+  "Python",
+  "Postgres",
+  "Unix",
+  "TypeScript",
+  "React",
+  "Hugging Face",
+  "Java",
+  "SQL",
+  "Java Swing",
+] as const;
 
 export type Skill = (typeof SKILLS)[number];
 
@@ -170,7 +180,7 @@ export const projects: Project[] = [
     summary:
       "A full stack application I built which allows the user to talk with the blender AI conversational chatbot. This project acted as an introduction to full-stack applications and I was able to work with many front end technologies for the first time while gaining familiarity with Hugging Face Machine Learning Library.",
     repositoryUrl: "https://github.com/oliverRamirez4/LevelUp2024",
-    skills: [],
+    skills: ["Hugging Face"],
     image: "/levelUp.png",
   },
   {
@@ -179,7 +189,7 @@ export const projects: Project[] = [
     summary:
       "A clone of the rhythm game OSU built with Java. Implemented a music player that plays on a seperate thread, a leaderboard using SQL, and a file reading system that allows us to drop a .osu file into our game and it will automatically generate a level based on the files parameters. UI built with Java Swing library.",
     repositoryUrl: "https://github.com/oliverRamirez4/Osu-Game-Clone-Java",
-    skills: [],
+    skills: ["Java", "SQL", "Java Swing"],
     image: "/OsuGame.png",
   },
   {

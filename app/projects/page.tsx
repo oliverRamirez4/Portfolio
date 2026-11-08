@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { FaJava } from "react-icons/fa";
+import { FaArrowUpRightFromSquare, FaGithub, FaJava } from "react-icons/fa6";
 import { SiHuggingface, SiPostgresql, SiPython, SiReact, SiTypescript } from "react-icons/si";
 import { openHref, projects, type Skill } from "@/lib/projects";
 
@@ -49,17 +49,21 @@ export default function Page() {
                 <img src={project.image} alt={project.title} className="mt-4 w-full object-contain" />
               ) : null}
               <div className="mt-4 flex gap-4">
-                <a href={project.repositoryUrl} target="_blank" rel="noreferrer" className="text-current">
-                  Repository
+                <a
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-current"
+                  aria-label={`${project.title} on GitHub`}
+                >
+                  <FaGithub aria-hidden="true" />
                 </a>
                 {href ? (
-                  <a href={href} className="text-current">
-                    Open
-                    {project.onSite ? <span className="sr-only"> on this site</span> : null}
+                  <a href={href} className="text-current" aria-label={`Open ${project.title}`}>
+                    <FaArrowUpRightFromSquare aria-hidden="true" />
                   </a>
                 ) : null}
               </div>
-              {project.onSite ? <p className="mt-4 font-mono text-[13px] text-ink">Opens on this site</p> : null}
             </article>
           );
         })}

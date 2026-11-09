@@ -16,6 +16,8 @@ export const SKILLS = [
   "Java",
   "Java Swing",
   "MySQL",
+  "Radon",
+  "Modal",
 ] as const;
 
 export type Skill = (typeof SKILLS)[number];
@@ -207,5 +209,13 @@ export const projects: Project[] = [
       "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
     repositoryUrl: "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
     skills: ["Python"],
+  },
+  {
+    shortName: "swe-bench-radon",
+    title: "SWE-bench Radon Metrics",
+    summary:
+      "A fork of SWE-bench that records Radon metrics for the repository and a summary of the model patch during Modal evaluation. The numbers are saved on the instance report so they can be compared with whether the model solves the GitHub issue.",
+    repositoryUrl: "https://github.com/oliverRamirez4/SWE-bench-x-Radon-metrics",
+    skills: ["Python", "Radon", "Modal"],
   },
 ];

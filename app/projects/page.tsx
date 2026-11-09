@@ -5,6 +5,7 @@ import {
   SiFlask,
   SiHuggingface,
   SiMapbox,
+  SiModal,
   SiMysql,
   SiNextdotjs,
   SiNumpy,
@@ -32,6 +33,7 @@ const marks: Partial<Record<Skill, IconType>> = {
   NumPy: SiNumpy,
   Java: FaJava,
   MySQL: SiMysql,
+  Modal: SiModal,
 };
 
 export default function Page() {

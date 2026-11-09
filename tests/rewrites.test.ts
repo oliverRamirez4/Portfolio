@@ -66,7 +66,7 @@ describe("buildRewrites", () => {
 
     assert.deepEqual(
       projects.map((project) => project.shortName),
-      ["colorado-vote", "shelter-connect", "nlp-labs", "level-up", "osu-clone", "river-permit"],
+      ["colorado-vote", "shelter-connect", "nlp-labs", "level-up", "osu-clone", "river-permit", "swe-bench-radon"],
     );
 
     const vote = projects[0];
@@ -97,7 +97,7 @@ describe("buildRewrites", () => {
     });
     assert.equal(openHref(shelter), "/apps/shelter-connect");
 
-    for (const shortName of ["nlp-labs", "level-up", "osu-clone", "river-permit"]) {
+    for (const shortName of ["nlp-labs", "level-up", "osu-clone", "river-permit", "swe-bench-radon"]) {
       const project = projects.find((item) => item.shortName === shortName);
       assert.ok(project);
       assert.equal(project.externalUrl, undefined);

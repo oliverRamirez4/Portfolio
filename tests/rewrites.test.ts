@@ -66,7 +66,7 @@ describe("buildRewrites", () => {
 
     assert.deepEqual(
       projects.map((project) => project.shortName),
-      ["colorado-vote", "shelter-connect", "nlp-labs", "level-up", "osu-clone", "river-permit", "swe-bench-radon"],
+      ["colorado-vote", "shelter-connect", "swe-bench-radon", "river-permit", "osu-clone", "nlp-labs", "level-up"],
     );
 
     const vote = projects[0];

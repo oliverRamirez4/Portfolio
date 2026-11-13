@@ -176,6 +176,32 @@ export const projects: Project[] = [
     },
   },
   {
+    shortName: "swe-bench-radon",
+    title: "SWE-bench Radon Metrics",
+    summary:
+      "A fork of SWE-bench that I used in my research at AIT-Budapest. It records Radon metrics for the code that top coding models produce when they implement a solution on SWE-bench, so I could explore correlations between those models and the metrics of the patches they write.",
+    repositoryUrl: "https://github.com/oliverRamirez4/SWE-bench-x-Radon-metrics",
+    skills: ["Python", "Radon", "Modal"],
+    image: "/sweBench.jpeg",
+  },
+  {
+    shortName: "river-permit",
+    title: "River Permit API Wrapper",
+    summary:
+      "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
+    repositoryUrl: "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
+    skills: ["Python"],
+  },
+  {
+    shortName: "osu-clone",
+    title: "Osu Rhythm Game Clone",
+    summary:
+      "A clone of the rhythm game OSU built with Java. Implemented a music player that plays on a seperate thread, a leaderboard using SQL, and a file reading system that allows us to drop a .osu file into our game and it will automatically generate a level based on the files parameters. UI built with Java Swing library.",
+    repositoryUrl: "https://github.com/oliverRamirez4/Osu-Game-Clone-Java",
+    skills: ["Java", "Java Swing", "MySQL"],
+    image: "/OsuGame.png",
+  },
+  {
     shortName: "nlp-labs",
     title: "Natural Language Processing Labs",
     summary:
@@ -192,30 +218,5 @@ export const projects: Project[] = [
     repositoryUrl: "https://github.com/oliverRamirez4/LevelUp2024",
     skills: ["Python", "Flask", "Hugging Face"],
     image: "/levelUp.png",
-  },
-  {
-    shortName: "osu-clone",
-    title: "Osu Rhythm Game Clone",
-    summary:
-      "A clone of the rhythm game OSU built with Java. Implemented a music player that plays on a seperate thread, a leaderboard using SQL, and a file reading system that allows us to drop a .osu file into our game and it will automatically generate a level based on the files parameters. UI built with Java Swing library.",
-    repositoryUrl: "https://github.com/oliverRamirez4/Osu-Game-Clone-Java",
-    skills: ["Java", "Java Swing", "MySQL"],
-    image: "/OsuGame.png",
-  },
-  {
-    shortName: "river-permit",
-    title: "River Permit API Wrapper",
-    summary:
-      "A Python tool that checks Recreation.gov for remaining river-rafting permits over a chosen date range and reports which launch dates still have permits.",
-    repositoryUrl: "https://github.com/oliverRamirez4/recreation-gov-rafting-permit-scraper",
-    skills: ["Python"],
-  },
-  {
-    shortName: "swe-bench-radon",
-    title: "SWE-bench Radon Metrics",
-    summary:
-      "A fork of SWE-bench that records Radon metrics for the repository and a summary of the model patch during Modal evaluation. The numbers are saved on the instance report so they can be compared with whether the model solves the GitHub issue.",
-    repositoryUrl: "https://github.com/oliverRamirez4/SWE-bench-x-Radon-metrics",
-    skills: ["Python", "Radon", "Modal"],
   },
 ];

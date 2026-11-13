@@ -70,7 +70,15 @@ export default function Page() {
                 </ul>
               ) : null}
               {project.image ? (
-                <img src={project.image} alt={project.title} className="mt-4 w-full object-contain" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={
+                    project.shortName === "swe-bench-radon"
+                      ? "mx-auto mt-4 block h-auto w-full max-w-64 object-contain"
+                      : "mt-4 w-full object-contain"
+                  }
+                />
               ) : null}
               <div className="mt-4 flex gap-4">
                 <a
